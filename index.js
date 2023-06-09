@@ -27,11 +27,10 @@ app.get('/trains',(req,ress)=>{
     
 })
 
-app.get('/trains/:id',(req,ress)=>{
-    console.log(req.params.id)
-    //axios.get("http://104.211.219.98/train/trains",{headers: { Authorization: token }}).then((res)=>{ ress.send(res.data)})
-    //const six = arr.find(i => i.id === 6)
-    ress.send("HI")
+app.get('/train/trains/:id',(req,ress)=>{
+    const token = req.headers["authorization"];
+    axios.get(`http://104.211.219.98/train/trains/${req.params.id}`,{headers: { Authorization: token }}).then((res)=>{ ress.send(res.data) })
+    
 })
 
 app.listen(3000,()=>{
