@@ -20,7 +20,7 @@ app.post('/auth',(req,ress)=>{
     axios.post("http://104.211.219.98/train/auth",{companyName,clientID,ownerName,ownerEmail,rollNo,clientSecret}).then((res)=>{ress.send(res.data)})
 })
 
-app.get('/trains',(req,ress)=>{
+app.get('/train/trains',(req,ress)=>{
     const token = req.headers["authorization"];
     console.log(token)
     axios.get("http://104.211.219.98/train/trains",{headers: { Authorization: token }}).then((res)=>{ ress.send(res.data)})
